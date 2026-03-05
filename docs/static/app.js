@@ -13,6 +13,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const tocLinks = document.querySelectorAll('.toc-link');
     const sections = document.querySelectorAll('.section-content');
     const readingProgress = document.getElementById('readingProgress');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    // Dark mode functionality
+    function initTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    }
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (isDark) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+    
+    // Initialize theme on load
+    initTheme();
     
     // Mobile menu toggle
     if (mobileMenuBtn) {
@@ -204,24 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Intersection Observer for section animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
     // Back to top button
     function updateBackToTopButton() {
         if (window.pageYOffset > 500) {
@@ -285,11 +299,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateBackToTopButton();
     updateReadingProgress();
     
-    // Add visible class to first section immediately
-    if (sections.length > 0) {
-        sections[0].classList.add('visible');
-    }
-    
     // Keyboard shortcuts
     document.addEventListener('keydown', function(e) {
         // Ctrl/Cmd + K for search
@@ -305,11 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Print friendly
-    window.addEventListener('beforeprint', function() {
-        sections.forEach(section => section.classList.add('visible'));
-    });
-    
     console.log('🚀 Interactive transcript loaded successfully!');
     console.log('💡 Tip: Press Ctrl/Cmd + K to search');
+    console.log('🌓 Tip: Click theme toggle to switch between light and dark mode');
 });
