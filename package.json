@@ -5,9 +5,10 @@
     "dev": "vite",
     "dev:sandbox": "wrangler pages dev dist --ip 0.0.0.0 --port 3000",
     "build": "vite build",
+    "build:static": "bash build-static.sh",
     "preview": "wrangler pages dev dist",
     "deploy": "npm run build && wrangler pages deploy",
-    "deploy:gh": "npm run build && node scripts/deploy-gh.js",
+    "deploy:gh": "npm run build && npm run build:static",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
