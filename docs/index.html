@@ -23,6 +23,11 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     
     <!-- Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -39,66 +44,127 @@
         }
         
         /* Dark mode styles */
-        .dark {
+        html.dark {
             background-color: #1a1a1a;
-            color: #e5e7eb;
         }
         
-        .dark .bg-white {
-            background-color: #2d2d2d !important;
-        }
-        
-        .dark .bg-gray-50 {
-            background-color: #1f1f1f !important;
-        }
-        
-        .dark .text-gray-900 {
+        html.dark body {
+            background-color: #1a1a1a !important;
             color: #e5e7eb !important;
         }
         
-        .dark .text-gray-800 {
+        html.dark .bg-white {
+            background-color: #2d2d2d !important;
+        }
+        
+        html.dark .bg-gray-50 {
+            background-color: #1f1f1f !important;
+        }
+        
+        html.dark .bg-gray-100 {
+            background-color: #2d2d2d !important;
+        }
+        
+        html.dark .text-gray-900 {
+            color: #e5e7eb !important;
+        }
+        
+        html.dark .text-gray-800 {
             color: #d1d5db !important;
         }
         
-        .dark .text-gray-700 {
+        html.dark .text-gray-700 {
             color: #9ca3af !important;
         }
         
-        .dark .text-gray-600 {
+        html.dark .text-gray-600 {
             color: #6b7280 !important;
         }
         
-        .dark .border-gray-200 {
+        html.dark .text-gray-500 {
+            color: #6b7280 !important;
+        }
+        
+        html.dark .text-gray-400 {
+            color: #9ca3af !important;
+        }
+        
+        html.dark .border-gray-200 {
             border-color: #374151 !important;
         }
         
-        .dark .shadow-lg,
-        .dark .shadow-md {
+        html.dark .border-gray-300 {
+            border-color: #4b5563 !important;
+        }
+        
+        html.dark .shadow-lg,
+        html.dark .shadow-md,
+        html.dark .shadow-2xl {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
         }
         
-        .dark .bg-blue-50 {
+        html.dark .bg-blue-50 {
             background-color: #1e3a5f !important;
         }
         
-        .dark .bg-yellow-50 {
+        html.dark .bg-blue-100 {
+            background-color: #1e3a8a !important;
+        }
+        
+        html.dark .bg-yellow-50 {
             background-color: #4a3800 !important;
         }
         
-        .dark .bg-green-50 {
+        html.dark .bg-green-50 {
             background-color: #1a3a2a !important;
         }
         
-        .dark .bg-purple-50 {
+        html.dark .bg-purple-50 {
             background-color: #2a1a3a !important;
         }
         
-        .dark .bg-red-50 {
+        html.dark .bg-red-50 {
             background-color: #3a1a1a !important;
         }
         
-        .dark .bg-amber-50 {
+        html.dark .bg-amber-50 {
             background-color: #3a2a1a !important;
+        }
+        
+        html.dark .bg-orange-50 {
+            background-color: #3a2515 !important;
+        }
+        
+        html.dark .hover:bg-blue-50:hover {
+            background-color: #1e3a5f !important;
+        }
+        
+        html.dark .hover:bg-gray-50:hover {
+            background-color: #374151 !important;
+        }
+        
+        html.dark input {
+            background-color: #374151 !important;
+            color: #e5e7eb !important;
+        }
+        
+        html.dark code {
+            background-color: #374151 !important;
+            color: #e5e7eb !important;
+        }
+        
+        html.dark blockquote {
+            border-left-color: #3b82f6 !important;
+            color: #9ca3af !important;
+        }
+        
+        html.dark .search-result:hover {
+            background-color: #374151 !important;
+        }
+        
+        html.dark mark {
+            background-color: #fbbf24 !important;
+            color: #1f2937 !important;
         }
         
         .smooth-scroll {
@@ -112,8 +178,12 @@
             padding-left: 1rem;
         }
         
-        .dark .toc-link:hover {
+        html.dark .toc-link:hover {
             background-color: #374151 !important;
+        }
+        
+        html.dark .toc-link.active {
+            background-color: #1e3a5f !important;
         }
         
         /* Исправление: секции должны быть видимы сразу */
